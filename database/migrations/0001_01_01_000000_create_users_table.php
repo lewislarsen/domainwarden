@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -18,6 +15,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('mollie_customer_id')->nullable();
+            $table->string('mollie_mandate_id')->nullable();
+            $table->decimal('tax_percentage', 6, 4)->default(0); // optional
+            $table->dateTime('trial_ends_at')->nullable(); // optional
+            $table->text('extra_billing_information')->nullable(); // optional
+
             $table->timestamps();
         });
 
@@ -37,9 +40,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');
