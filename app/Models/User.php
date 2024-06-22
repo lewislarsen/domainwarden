@@ -34,6 +34,25 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the receiver information for the invoice.
+     * Typically includes the name and some sort of (E-mail/physical) address.
+     *
+     * @return array An array of strings
+     */
+    public function getInvoiceInformation(): array
+    {
+        return [$this->name, $this->email];
+    }
+
+    /**
+     * Get additional information to be displayed on the invoice. Typically a note provided by the customer.
+     */
+    public function getExtraBillingInformation(): ?string
+    {
+        return null;
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

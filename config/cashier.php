@@ -6,13 +6,13 @@ return [
      * The default webhook url is called by Mollie on payment status updates. You can use either a relative or
      * absolute url.
      */
-    'webhook_url' => 'webhooks/mollie',
+    'webhook_url' => env('NGROK_URL') ? env('NGROK_URL') . '/webhooks/mollie' : 'webhooks/mollie',
 
     /**
      * The default aftercare webhook url is called by Mollie on refunds and chargebacks. You can use either a relative or
      * absolute url.
      */
-    'aftercare_webhook_url' => 'webhooks/mollie/aftercare',
+    'aftercare_webhook_url' => env('NGROK_URL') ? env('NGROK_URL') . '/webhooks/mollie/aftercare' : 'webhooks/mollie/aftercare',
 
     /**
      * The default locale passed to Mollie for configuring the checkout screen. Set to null to let Mollie handle it for
@@ -52,7 +52,7 @@ return [
          * The first payment webhook url is called by Mollie on first payment status updates. Can be overridden per
          * Plan. You can use either a relative or absolute url.
          */
-        'webhook_url' => 'webhooks/mollie/first-payment',
+        'webhook_url' => env('NGROK_URL') ? env('NGROK_URL') . '/webhooks/mollie/first-payment' : 'webhooks/mollie/first-payment',
 
         /**
          * Array of allowed Mollie payment methods for the first payment. Make sure the methods are
@@ -67,7 +67,7 @@ return [
          * overridden per Plan. You can use a `{payment_id}` placeholder here to easily retrieve the Mollie payment in
          * your controller. Make sure you have set up a matching route.
          */
-        'redirect_url' => config('app.url'),
+        'redirect_url' => '/billing',
 
         /**
          * The default amount for a first payment. Can be overridden per Plan.
@@ -84,7 +84,7 @@ return [
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => 'EUR',
+            'currency' => config('billing.currency', 'USD'),
         ],
 
         /**
@@ -106,7 +106,7 @@ return [
          * overridden per Plan. You can use a `{payment_id}` placeholder here to easily retrieve the Mollie payment in
          * your controller. Make sure you have set up a matching route.
          */
-        'redirect_url' => config('app.url'),
+        'redirect_url' => '/billing',
 
         /**
          * The default amount for change payment method. Can be overridden per Plan and is added to user balance.
@@ -123,7 +123,7 @@ return [
              * An ISO 4217 currency code. The currencies supported depend on the payment methods that are enabled on
              * your Mollie account.
              */
-            'currency' => 'EUR',
+            'currency' => config('billing.currency', 'USD'),
         ],
 
         /**
