@@ -47,12 +47,19 @@
                     </nav>
                 </div>
                 <div class="hidden justify-end pr-16 sm:flex lg:pr-0">
-                    <a wire:navigate href="{{ route('login') }}" class="mr-3 rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:opacity-50">
-                        {{ __('Login') }}
-                    </a>
-                    <a wire:navigate href="{{ route('register') }}" class="rounded-lg bg-white bg-opacity-20 px-7 py-3 text-base font-medium text-white hover:text-dark ease-in-out hover:opacity-80">
-                        {{ __('Join Up') }}
-                    </a>
+                    @if(Auth::check())
+                        <a wire:navigate href="{{ route('domains.index') }}" class="mr-3 rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:opacity-50">
+                            {{ __('Your Domains') }}
+                        </a>
+                        <img src="{{ Auth::user()->gravatar() }}" class="h-9 w-9 border border-white rounded-full" />
+                    @else
+                        <a wire:navigate href="{{ route('login') }}" class="mr-3 rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:opacity-50">
+                            {{ __('Login') }}
+                        </a>
+                        <a wire:navigate href="{{ route('register') }}" class="rounded-lg bg-white bg-opacity-20 px-7 py-3 text-base font-medium text-white hover:text-dark ease-in-out hover:opacity-80">
+                            {{ __('Join Up') }}
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -76,9 +83,15 @@
                     </p>
                     <ul class="flex flex-wrap items-center justify-center">
                         <li class="mx-2 mb-3 sm:mx-4">
-                            <a wire:navigate href="{{ route('login') }}" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-4 text-center text-base font-normal text-dark hover:bg-opacity-90 sm:px-10">
-                             {{ __('Lets get started!') }}
-                            </a>
+                            @if(Auth::check())
+                                <a wire:navigate href="{{ route('domains.index') }}" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-4 text-center text-base font-normal text-dark hover:bg-opacity-90 sm:px-10">
+                                    {{ __('Visit my domains!') }}
+                                </a>
+                            @else
+                                <a wire:navigate href="{{ route('login') }}" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-4 text-center text-base font-normal text-dark hover:bg-opacity-90 sm:px-10">
+                                    {{ __('Lets get started!') }}
+                                </a>
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -87,7 +100,7 @@
             <div class="w-full px-4">
                 <div class="relative z-10 mx-auto max-w-[845px]">
                     <div class="mt-16">
-                        <img src="{{ asset('hero.png') }}" class="mx-auto max-w-full rounded-t-xl rounded-tr-xl">
+                        <img src="{{ asset('hero.png') }}" class="mx-auto max-w-full rounded-t-xl rounded-tr-xl shadow-sm">
                     </div>
                     <div class="absolute -left-9 bottom-0 z-[-1]">
                         <svg width="134" height="106" viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -310,7 +323,7 @@
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('billing') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
@@ -346,7 +359,7 @@
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('billing') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
@@ -379,7 +392,7 @@
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('billing') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
