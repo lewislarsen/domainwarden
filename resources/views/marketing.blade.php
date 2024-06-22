@@ -25,7 +25,7 @@
     <div class="container mx-auto">
         <div class="relative -mx-4 flex items-center justify-between">
             <div class="w-60 max-w-full px-4">
-                <a href="javascript:void(0)" class="block w-full py-5">
+                <a href="{{ route('domains.index') }}" class="block w-full py-5">
                     <x-application-logo class="inline h-20 w-20" />
                 </a>
             </div>
@@ -39,18 +39,8 @@
                     <nav :class="!navbarOpen &amp;&amp; 'hidden' " id="navbarCollapse" class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:shadow-none hidden">
                         <ul class="blcok lg:flex">
                             <li>
-                                <a href="javascript:void(0)" class="flex py-2 text-base font-medium text-dark hover:text-primary hover:opacity-100 lg:ml-12 lg:inline-flex lg:text-white lg:hover:text-white lg:hover:opacity-50">
+                                <a href="{{ route('domains.index') }}" class="flex py-2 text-base font-medium text-dark hover:text-primary hover:opacity-100 lg:ml-12 lg:inline-flex lg:text-white lg:hover:text-white lg:hover:opacity-50">
                                     {{ __('Home') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="flex py-2 text-base font-medium text-dark hover:text-primary hover:opacity-100 lg:ml-12 lg:inline-flex lg:text-white lg:hover:text-white lg:hover:opacity-50">
-                                    {{ __('About') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="flex py-2 text-base font-medium text-dark hover:text-primary hover:opacity-100 lg:ml-12 lg:inline-flex lg:text-white lg:hover:text-white lg:hover:opacity-50">
-                                    {{ __('Features') }}
                                 </a>
                             </li>
                         </ul>
@@ -320,7 +310,7 @@
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('dashboard') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
@@ -349,14 +339,14 @@
 
                         <div class="flex flex-col gap-[14px]">
                             <p class="text-base text-body-color dark:text-dark-6">
-                                {{ __('Track 5 Domain') }}
+                                {{ __('Track 5 Domains') }}
                             </p>
                             <p class="text-base text-body-color dark:text-dark-6">
                                 {{ __('Access to Support') }}
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('dashboard') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
@@ -382,14 +372,14 @@
 
                         <div class="flex flex-col gap-[14px]">
                             <p class="text-base text-body-color dark:text-dark-6">
-                                {{ __('Track 15 Domain') }}
+                                {{ __('Track 15 Domains') }}
                             </p>
                             <p class="text-base text-body-color dark:text-dark-6">
                                 {{ __('Access to Support') }}
                             </p>
                         </div>
                     </div>
-                    <a wire:navigate href="{{ route('dashboard') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
+                    <a wire:navigate href="{{ route('domains.index') }}" class="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition hover:bg-blue-dark">
                         {{ __('Join and subscribe now!') }}
                     </a>
                 </div>
